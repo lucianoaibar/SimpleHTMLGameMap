@@ -24,6 +24,13 @@ body {
 	width: 16px;
 	height: 16px;
 	flex-basis: 0 1 16px;
+	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.tablero li:hover {
+	border: #FFF 1px solid;
 }
 
 /*******************************/
