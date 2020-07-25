@@ -3,7 +3,7 @@
 
 	//_________________________________________________________________________
 	// Variables
-	var div_tablero;
+	var div_mapa;
 	var	Ancho = 32;
 	var Alto = 32;
 	var Mapa = [];
@@ -19,12 +19,17 @@
 
 	//_________________________________________________________________________
 	var Iniciar = function() {
-		div_tablero = document.getElementById('div_tablero');
-		div_tablero.addEventListener('click', Tablero_Click);
+		div_mapa = document.getElementById('div_mapa');
+		div_mapa.addEventListener('click', Mapa_Click);
+		Cargar_Mapa();
+		Render();
+	};
+
+	//_________________________________________________________________________
+	var Cargar_Mapa = function() {
 		Celda_Tipo_Max = Celda_Tipos.length - 1;
 		Mapa.length = Ancho * Alto;
 		Mapa.fill(0);
-		Render();
 	};
 
 	//_________________________________________________________________________
@@ -50,11 +55,11 @@
 			}
 			resultado += '</ul>';
 		}
-		div_tablero.innerHTML = resultado;
+		div_mapa.innerHTML = resultado;
 	};
 
 	//_________________________________________________________________________
-	var Tablero_Click = function(evento) {
+	var Mapa_Click = function(evento) {
 		if(evento.target.tagName=='LI') {
 			var indice	= parseInt(evento.target.getAttribute('indice'));
 
